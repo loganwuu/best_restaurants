@@ -13,8 +13,10 @@
                 <label for="name">Cuisine Name:</label>
                 <input type="text" name="name" id="name">
 
-                <button type="submit" class="btn btn-info">Add Cuisine</button>
+                <button type="submit" class="btn btn-info">Add</button>
             </form>
+
+            <hr noshade size=4 width=100% align=left>
 
             {% if cuisines is not empty %}
                 <p>Here are all of the cuisines:</p>
@@ -27,7 +29,7 @@
                 <p>There are no cuisines yet!</p>
             {% endif %}
 
-            <form action="/delete_categories" method="post">
+            <form action="/delete_cuisines" method="post">
                 <button type="submit" class="btn btn-danger">Clear Cuisines</button>
             </form>
         </div>

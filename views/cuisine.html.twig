@@ -11,10 +11,12 @@
                 <p>Here are all the restaurants:</p>
 
                   {% for restaurant in restaurants %}
-                      <h5>{{ restaurant.getName }}</h5>
+                      <ul><li>{{ restaurant.getName }}</li></ul>
                   {% endfor %}
             {% endif %}
 
+            <hr noshade size=4 width=100% align=left>
+            
             <h4>Add a Restaurant:</h4>
 
             <form action="/restaurants" method="post">
