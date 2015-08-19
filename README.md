@@ -1,6 +1,6 @@
 # Best Restaurants with MySQL
 
-##### App that shows where users can add their favorite restaurants by the type of cuisine they offer, 8/19/15
+##### App that shows where users can add their favorite restaurants by the type of cuisine they offer. (8/19/15)
 
 #### William Swanson & Logan Wu
 
