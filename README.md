@@ -6,7 +6,7 @@
 
 ## Description
 
-This application allows user to input items into their inventory.  The items are stored in a MySQL database.  The user can search through their inventory to check if a specific item has been added.  Users can also delete their entire inventory.
+This application allows users to input their favorite restaurants by the type of cuisine they offer.  The items are stored in a MySQL database.  The user can search through the website to check if a specific item has been added.  Users can also delete their entire list.
 
 ## Setup
 
