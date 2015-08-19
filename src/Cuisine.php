@@ -48,7 +48,7 @@
         {
             $GLOBALS['DB']->exec("INSERT INTO cuisine (name) VALUES ('{$this->getName()}');");
             $result_id = $GLOBALS['DB']->lastInsertId();
-            $this->setId($results_id);
+            $this->setId($result_id);
         }
 
         static function getAll()

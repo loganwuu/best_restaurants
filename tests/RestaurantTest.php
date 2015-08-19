@@ -148,10 +148,10 @@
             $test_restaurant2 = new Restaurant($name, $id, $cuisine_id);
             $test_restaurant2->save();
 
-            $id = $test_Restaurant->getId();
+            $id = $test_restaurant->getId();
             $result = Restaurant::find($id);
 
-            $this->assertEquals($test_Restaurant, $result);
+            $this->assertEquals($test_restaurant, $result);
         }
     }
 ?>
