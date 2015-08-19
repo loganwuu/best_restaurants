@@ -9,14 +9,13 @@
 
             {% if restaurants is not empty %}
                 <p>Here are all the restaurants:</p>
-
                   {% for restaurant in restaurants %}
                       <ul><li>{{ restaurant.getName }}</li></ul>
                   {% endfor %}
             {% endif %}
 
             <hr noshade size=4 width=100% align=left>
-            
+
             <h4>Add a Restaurant:</h4>
 
             <form action="/restaurants" method="post">
@@ -25,6 +24,10 @@
                 <input id="name" type="text" name="name">
 
                 <button type="submit" class="btn btn-info">Add Restaurant</button>
+            </form>
+
+            <form action="/cuisines/{{ cuisine.getId }}/edit">
+                <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
             </form>
 
             <form action="/">

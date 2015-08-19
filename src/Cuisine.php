@@ -44,6 +44,7 @@
             }
             return $restaurants;
         }
+
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO cuisines (name) VALUES ('{$this->getName()}');");
@@ -51,6 +52,12 @@
             $this->setId($result_id);
         }
 
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE cuisines SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
+        
         static function getAll()
         {
             $returned_cuisines = $GLOBALS['DB']->query("SELECT * FROM cuisines;");
