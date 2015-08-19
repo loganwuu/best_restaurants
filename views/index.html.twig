@@ -21,7 +21,7 @@
             {% if cuisines is not empty %}
                 <p>Here are all of the cuisines:</p>
                 <ul>
-                    {% for cuisine in cuisines %}
+                    {% for cuisine in cuisines|sort %}
                         <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getName }}</a></li>
                     {% endfor %}
                 </ul>
