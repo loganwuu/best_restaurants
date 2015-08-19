@@ -39,8 +39,10 @@
                 $name = $restaurant['name'];
                 $id = $restaurant['id'];
                 $cuisine_id = $restaurant['cuisine_id'];
-                $new_Restaurant = new Restaurant($name, $id, $cuisine_id);
-                array_push($restaurants, $new_Restaurant);
+                $description = $restaurant['description'];
+                $address = $restaurant['address'];
+                $new_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
+                array_push($restaurants, $new_restaurant);
             }
             return $restaurants;
         }

@@ -30,8 +30,10 @@
 
             //restaurant
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             $result = $test_restaurant->getId();
@@ -49,8 +51,10 @@
 
             //restaurant
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             $result = $test_restaurant->getCuisineId();
@@ -68,8 +72,10 @@
 
             //restaurant
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
 
             $test_restaurant->save();
 
@@ -87,14 +93,18 @@
 
             //restaurant1
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //restaurant2
             $name2 = "Good Luck";
+            $description2 = "very yummy.";
+            $address2 = "2222 SW 12th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
             $test_restaurant2->save();
 
             $result = Restaurant::getAll();
@@ -112,14 +122,18 @@
 
             //restaurant1
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //restaurant2
             $name2 = "Good Luck";
+            $description2 = "very yummy.";
+            $address2 = "2222 SW 12th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
             $test_restaurant2->save();
 
             Restaurant::deleteAll();
@@ -138,14 +152,18 @@
 
             //restaurant1
             $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //restaurant2
             $name2 = "Good Luck";
+            $description2 = "very yummy.";
+            $address2 = "2222 SW 12th Ave";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
             $test_restaurant2->save();
 
             $id = $test_restaurant->getId();

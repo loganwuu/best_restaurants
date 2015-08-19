@@ -18,25 +18,43 @@
 
             <h4>Add a Restaurant:</h4>
 
-            <form action="/restaurants" method="post">
-                <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId() }}">
-                <label for="name">Restaurant Name:</label>
-                <input id="name" type="text" name="name">
 
-                <button type="submit" class="btn btn-info">Add Restaurant</button>
-            </form>
 
-            <form action="/cuisines/{{ cuisine.getId }}/edit">
-                <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
-            </form>
+                    <form action="/restaurants" method="post">
+                        <div class='form-group'>
+                            <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId() }}">
+                            <label for="name">Restaurant Name:</label>
+                            <input id="name" type="text" name="name" class='form-control'>
 
-            <form action="/">
-                <button type="submit" class="btn btn-success">Home</button>
-            </form>
 
-            <form action="/delete_restaurants" method="post">
-                <button type="submit" class="btn btn-danger">Clear Restaurants</button>
-            </form>
+                            <label for="description">Description:</label>
+                            <input id="description" type="text" name="description" class='form-control'>
+
+                            <label for="address">Address:</label>
+                            <input id="address" type="text" name="address" class='form-control'>
+                        </div>
+                        <button type="submit" class="btn btn-info">Add Restaurant</button>
+                    </form>
+
+                <div class="btn-group inline pull-left">
+                    <div class="btn btn-small">
+                        <form action="/cuisines/{{ cuisine.getId }}/edit">
+                            <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
+                        </form>
+                    </div>
+
+                    <div class="btn btn-small">
+                        <form action="/">
+                            <button type="submit" class="btn btn-success">Home</button>
+                        </form>
+                    </div>
+
+                    <div class="btn btn-small">
+                        <form action="/delete_restaurants" method="post">
+                            <button type="submit" class="btn btn-danger">Clear Restaurants</button>
+                        </form>
+                    </div>
+                </div>
 
         </div>
     </body>

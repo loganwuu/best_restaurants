@@ -84,6 +84,7 @@
 
         function test_GetRestaurants()
         {
+            //cuisine
             $name = "Japanese";
             $id = null;
             $test_cuisine = new Cuisine($name, $id);
@@ -93,12 +94,16 @@
 
             //restaurant1
             $name = "Good Fortune";
-            $test_restaurant = new Restaurant($name, $id, $test_cuisine_id);
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
+            $test_restaurant = new Restaurant($name, $id, $test_cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //restaurant2
             $name2 = "Good Luck";
-            $test_restaurant2 = new Restaurant($name, $id, $test_cuisine_id);
+            $description2 = "very yummy.";
+            $address2 = "2222 SW 12th Ave";
+            $test_restaurant2 = new Restaurant($name2, $id, $test_cuisine_id, $description2, $address2);
             $test_restaurant2->save();
 
             $result = $test_cuisine->getRestaurants();
@@ -154,7 +159,9 @@
                 //restaurant
             $name = "Good Fortune";
             $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //Act
