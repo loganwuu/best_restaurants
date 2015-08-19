@@ -122,5 +122,46 @@
             //Assert
             $this->assertEquals("Chinese", $test_cuisine->getName());
         }
+
+        function test_Delete()
+        {
+            //Arrange
+            $name = "Japanese";
+            $id = null;
+            $test_cuisine = new Cuisine($name, $id);
+            $test_cuisine->save();
+
+            $name2 = "Chinese";
+            $test_cuisine2 = new Cuisine($name2, $id);
+            $test_cuisine2->save();
+
+            //Act
+            $test_cuisine->delete();
+
+            //Assert
+            $this->assertEquals([$test_cuisine2], Cuisine::getAll());
+        }
+
+        function test_DeleteCuisineRestaurants()
+        {
+            //Arrange
+                //cuisine
+            $name = "Japanese";
+            $id = null;
+            $test_cuisine = new Cuisine($name, $id);
+            $test_cuisine->save();
+
+                //restaurant
+            $name = "Good Fortune";
+            $cuisine_id = $test_cuisine->getId();
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_restaurant->save();
+
+            //Act
+            $test_cuisine->delete();
+
+            //Assert
+            $this->assertEquals([], Restaurant::getAll());
+        }
     }
 ?>
