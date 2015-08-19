@@ -46,7 +46,7 @@
         }
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO cuisine (name) VALUES ('{$this->getName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO cuisines (name) VALUES ('{$this->getName()}');");
             $result_id = $GLOBALS['DB']->lastInsertId();
             $this->setId($result_id);
         }
