@@ -10,46 +10,51 @@
             {% if restaurants is not empty %}
                 <p>Here are all the restaurants:</p>
                   {% for restaurant in restaurants %}
-                      <ul><li>{{ restaurant.getName }}</li></ul>
+                      <ul>
+                          <li>{{ restaurant.getName }}
+                              <ul>
+                                  <li>Description: {{ restaurant.getDescription }}</li>
+                                  <li>Address: {{ restaurant.getAddress }}</li>
+                              </ul>
+                          </li>
+                      </ul>
                   {% endfor %}
             {% endif %}
 
             <hr noshade size=4 width=100% align=left>
 
-            <h4>Add a Restaurant:</h4>
-
-
-
-                    <form action="/restaurants" method="post">
-                        <div class='form-group'>
-                            <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId() }}">
-                            <label for="name">Restaurant Name:</label>
-                            <input id="name" type="text" name="name" class='form-control'>
-
-
-                            <label for="description">Description:</label>
-                            <input id="description" type="text" name="description" class='form-control'>
-
-                            <label for="address">Address:</label>
-                            <input id="address" type="text" name="address" class='form-control'>
-                        </div>
-                        <button type="submit" class="btn btn-info">Add Restaurant</button>
-                    </form>
+            <h4>Add a Restaurant</h4>
+                <form action="/restaurants" method="post">
+                    <div class='form-group'>
+                        <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId() }}">
+                        <label for="name">Restaurant Name:</label>
+                        <input id="name" type="text" name="name" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="description">Description:</label>
+                        <input id="description" type="text" name="description" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="address">Address:</label>
+                        <input id="address" type="text" name="address" class='form-control'>
+                    </div>
+                    <button type="submit" class="btn btn-info">Add Restaurant</button>
+                </form>
 
                 <div class="btn-group inline pull-left">
-                    <div class="btn btn-small">
+                    <div class="btn">
                         <form action="/cuisines/{{ cuisine.getId }}/edit">
                             <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
                         </form>
                     </div>
 
-                    <div class="btn btn-small">
+                    <div class="btn">
                         <form action="/">
                             <button type="submit" class="btn btn-success">Home</button>
                         </form>
                     </div>
 
-                    <div class="btn btn-small">
+                    <div class="btn">
                         <form action="/delete_restaurants" method="post">
                             <button type="submit" class="btn btn-danger">Clear Restaurants</button>
                         </form>
