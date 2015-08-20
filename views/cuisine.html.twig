@@ -41,25 +41,24 @@
                     <button type="submit" class="btn btn-info">Add Restaurant</button>
                 </form>
 
-                <div class="btn-group inline pull-left">
-                    <div class="btn">
-                        <form action="/cuisines/{{ cuisine.getId }}/edit">
-                            <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
-                        </form>
-                    </div>
+                    <form action="/search">
+                        <label for="search">Search for a Restaurant</label>
+                        <input type="text" name="search" id="search">
 
-                    <div class="btn">
-                        <form action="/">
-                            <button type="submit" class="btn btn-success">Home</button>
-                        </form>
-                    </div>
+                        <button type="submit" class="btn btn-info">Search</button>
+                    </form>
+                    
+                    <form action="/cuisines/{{ cuisine.getId }}/edit">
+                        <button type="submit" class="btn btn-primary">Edit Cuisine Name</button>
+                    </form>
 
-                    <div class="btn">
-                        <form action="/delete_restaurants" method="post">
-                            <button type="submit" class="btn btn-danger">Clear Restaurants</button>
-                        </form>
-                    </div>
-                </div>
+                    <form action="/">
+                        <button type="submit" class="btn btn-success">Home</button>
+                    </form>
+
+                    <form action="/delete_restaurants" method="post">
+                        <button type="submit" class="btn btn-danger">Clear Restaurants</button>
+                    </form>
 
         </div>
     </body>

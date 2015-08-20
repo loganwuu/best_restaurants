@@ -72,5 +72,10 @@
         return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
     });
 
+    $app->get("/search", function() use ($app) {
+        $search = Restaurant::search($_GET['search']);
+        return $app['twig']->render('search.html.twig', array('search' => $search, 'search_term' => $_GET['search']));
+    });
+
     return $app;
 ?>

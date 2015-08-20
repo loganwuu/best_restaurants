@@ -101,5 +101,18 @@
             }
             return $found_restaurant;
         }
+
+        static function search($search_name)
+        {
+            $found_restaurant = NULL;
+            $restaurants = Restaurant::getAll();
+            foreach($restaurants as $restaurant) {
+                $restaurant_name = $restaurant->getName();
+                if($restaurant_name = $search_name) {
+                    $found_restaurant = $restaurant;
+                }
+            }
+            return $found_restaurant;
+        }
     }
 ?>
