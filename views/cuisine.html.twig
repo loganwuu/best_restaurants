@@ -12,6 +12,7 @@
                   {% for restaurant in restaurants|sort %}
                       <ul>
                           <li>{{ restaurant.getName }}
+                              <a href="/restaurants/{{ restaurant.getId }}"><span class="label label-default"> Review</span></a>
                               <ul>
                                   <li>Description: {{ restaurant.getDescription }}</li>
                                   <li>Address: {{ restaurant.getAddress }}</li>
