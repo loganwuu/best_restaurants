@@ -5,32 +5,35 @@
     </head>
     <body>
         <div class="container">
-            <h1>My Best Restaurants</h1>
+            <div class="jumbotron">
+                <h1>My Best Restaurants</h1>
+                <p>a collection of my favorite restaurants around the world!</p>
 
-            <h1><small>Add a Cuisine</small></h1>
+                <h1><small>add a cuisine</small></h1>
 
-            <form action="/cuisines" method="post">
-                <label for="name">Cuisine Name:</label>
-                <input type="text" name="name" id="name">
-
-                <button type="submit" class="btn btn-info btn-sm">Add</button>
-            </form>
-
+                <form action="/cuisines" method="post">
+                    <div class="form-group">
+                        <label for="name">Cuisine Name:</label>
+                        <input type="text" name="name" id="name" class='form-control'>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-block">Add</button>
+                </form>
+            </div>
             <hr noshade size=4 width=100% align=left>
 
             {% if cuisines is not empty %}
-                <h3>Here are all of the cuisines:</h3>
+                <h3>Cuisines:</h3>
                 <ul>
                     {% for cuisine in cuisines|sort %}
                         <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <h3>There are no cuisines yet!</h3>
+                <h3>There are no cuisines yet. Add one now!</h3>
             {% endif %}
 
             <form action="/delete_cuisines" method="post">
-                <button type="submit" class="btn btn-default btn-sm">Clear Cuisines</button>
+                <button type="submit" class="btn btn-default">Clear Cuisines</button>
             </form>
         </div>
     </body>
