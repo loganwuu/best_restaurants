@@ -1,12 +1,12 @@
 # Best Restaurants with MySQL
 
-##### App that shows where users can add their favorite restaurants by the type of cuisine they offer. (8/19/15 - 8/20/15)
+##### App that shows where users can add their favorite restaurants and reviews by the type of cuisine they offer. (8/19/15 - 8/20/15)
 
 #### Logan Wu & William Swanson
 
 ## Description
 
-This application allows users to input their favorite restaurants by the types of cuisine they offer.  The cuisines and restaurant tables are stored in the best_restaurants MySQL database.  The user can search through the website to check if a specific restaurant has been added.  Users can also delete their entire list of cuisines and restaurants.
+This application allows users to input their favorite restaurants by the types of cuisine they offer. They can also add individual reviews to different restaurants on a separate page.  The cuisines, restaurants, and reviews tables are stored in the best_restaurants MySQL database.  Users can search through the website to check if a specific restaurant has been added and also delete their entire list of cuisines and restaurants.
 
 ## Setup
 * Clone the project using the link provided on Github.
@@ -21,7 +21,7 @@ PHP, PHPUnit, Silex, Twig, and MySQL
 
 ### Legal
 
-Copyright (c) 2015 William Swanson & Logan Wu
+Copyright (c) 2015 Logan Wu $ William Swanson
 
 This software is licensed under the MIT license.
 
