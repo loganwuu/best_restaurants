@@ -67,13 +67,16 @@
             $reviews = array();
             $returned_reviews = $GLOBALS['DB']->query("SELECT * FROM reviews WHERE restaurant_id={$this->getId()};");
             foreach($returned_reviews as $review) {
-
-
-
-                $new_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
-                array_push($restaurants, $new_restaurant);
+                $username = $review['username'];
+                $date = $review['date'];
+                $rating = $review['rating'];
+                $comment = $review['comment'];
+                $restaurant_id = $review['restaurant_id'];
+                $id = $review['id'];
+                $new_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+                array_push($reviews, $new_review);
             }
-            return $restaurants;
+            return $reviews;
         }
 
         function save()

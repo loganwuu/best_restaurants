@@ -193,19 +193,21 @@
 
             //review1
             $username = "Ben";
-            $date = 0000-00-00;
+            $date = '0000-00-00';
             $rating = 5;
             $comment = "good one.";
             $restaurant_id = $test_restaurant->getId();
             $test_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+            $test_review->save();
 
             //review2
             $username2 = "Jen";
-            $date2 = 1111-00-00;
+            $date2 = '1111-00-00';
             $rating2 = 2;
             $comment2 = "Bad one.";
             $restaurant_id = $test_restaurant->getId();
             $test_review2 = new Review($username2, $date2, $rating2, $comment2, $restaurant_id, $id);
+            $test_review2->save();
 
             $result = $test_restaurant->getReviews();
 

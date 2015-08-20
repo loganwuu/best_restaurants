@@ -50,7 +50,7 @@
 
         function setComment($new_comment)
         {
-            $this->comment-> (string) $new_comment;
+            $this->comment = (string) $new_comment;
         }
 
         function getComment()
@@ -72,7 +72,7 @@
         {
             return $this->restaurant_id;
         }
-        
+
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO reviews (username, date, rating, comment, restaurant_id) VALUES ('{$this->getUsername()}', '{$this->getDate()}', {$this->getRating()}, '{$this->getComment()}', {$this->getRestaurantId()});");
@@ -88,9 +88,9 @@
                 $date = $review['date'];
                 $rating = $review['rating'];
                 $comment = $review['comment'];
-                $id = $review['id'];
                 $restaurant_id = $review['restaurant_id'];
-                $new_review = new Review ($username, $date, $rating, $comment, $restaurant_id, $id);
+                $id = $review['id'];
+                $new_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
                 array_push($reviews, $new_review);
             }
             return $reviews;
