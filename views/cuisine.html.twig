@@ -16,7 +16,7 @@
                   {% for restaurant in restaurants|sort %}
                       <ul>
                           <li>{{ restaurant.getName }}
-                              <a href="/restaurants/{{ restaurant.getId }}"><span class="label label-default"> Reviews</span></a>
+                              <a href="/restaurants/{{ restaurant.getId }}"><span class="label label-warning" > Reviews</span></a>
                               <ul>
                                   <li>Description: {{ restaurant.getDescription }}</li>
                                   <li>Address: {{ restaurant.getAddress }}</li>
@@ -49,11 +49,9 @@
                 </form>
 
                 <form action="/search">
-                    <div class='form-group'>
                         <label for="search">Search for a Restaurant</label>
                         <input type="text" name="search" id="search" required>
-                    </div>
-                    <button type="submit" class="btn btn-warning">Search</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 <ul class="nav nav-pills">
                     <li role="presentation">
