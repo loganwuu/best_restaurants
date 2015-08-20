@@ -7,6 +7,7 @@
 
     require_once "src/Cuisine.php";
     require_once "src/Restaurant.php";
+    require_once "src/Review.php";
 
     $server = 'mysql:host=localhost;dbname=best_restaurants_test';
     $username = 'root';
@@ -19,6 +20,7 @@
         {
             Restaurant::deleteAll();
             Cuisine::deleteAll();
+            Review::deleteAll();
         }
 
         function test_getName()

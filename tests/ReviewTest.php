@@ -13,7 +13,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class RestaurantTest extends PHPUnit_Framework_TestCase
+    class ReviewTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
@@ -38,12 +38,21 @@
             $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
-            $result = $test_restaurant->getId();
+            //review
+            $username = "Ben";
+            $date = 0000-00-00;
+            $rating = 5;
+            $comment = "good one.";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+            $test_review->save();
+
+            $result = $test_review->getId();
 
             $this->assertEquals(true, is_numeric($result));
         }
 
-        function test_getCuisineId()
+        function test_restaurantId()
         {
             //cuisine
             $name = "Japanese";
@@ -59,7 +68,16 @@
             $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
             $test_restaurant->save();
 
-            $result = $test_restaurant->getCuisineId();
+            //review
+            $username = "Ben";
+            $date = 0000-00-00;
+            $rating = 5;
+            $comment = "good one.";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+            $test_review->save();
+
+            $result = $test_review->getRestaurantId();
 
             $this->assertEquals(true, is_numeric($result));
         }
@@ -78,11 +96,20 @@
             $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
             $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
-
             $test_restaurant->save();
 
-            $result = Restaurant::getAll();
-            $this->assertEquals($test_restaurant, $result[0]);
+            //review
+            $username = "Ben";
+            $date = 0000-00-00;
+            $rating = 5;
+            $comment = "good one.";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+
+            $test_review->save();
+
+            $result = Review::getAll();
+            $this->asserEquals($test_review, $result[0]);
         }
 
         function test_getAll()
@@ -93,102 +120,12 @@
             $test_cuisine = new Cuisine($name, $id);
             $test_cuisine->save();
 
-            //restaurant1
+            //restaurant
             $name = "Good Fortune";
             $description = "very tasty.";
             $address = "1111 SW 11th Ave";
             $cuisine_id = $test_cuisine->getId();
             $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
-            $test_restaurant->save();
-
-            //restaurant2
-            $name2 = "Good Luck";
-            $description2 = "very yummy.";
-            $address2 = "2222 SW 12th Ave";
-            $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
-            $test_restaurant2->save();
-
-            $result = Restaurant::getAll();
-
-            $this->assertEquals([$test_restaurant, $test_restaurant2], $result);
-        }
-
-        function test_deleteAll()
-        {
-            //cuisine
-            $name = "Japanese";
-            $id = null;
-            $test_cuisine = new Cuisine($name, $id);
-            $test_cuisine->save();
-
-            //restaurant1
-            $name = "Good Fortune";
-            $description = "very tasty.";
-            $address = "1111 SW 11th Ave";
-            $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
-            $test_restaurant->save();
-
-            //restaurant2
-            $name2 = "Good Luck";
-            $description2 = "very yummy.";
-            $address2 = "2222 SW 12th Ave";
-            $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
-            $test_restaurant2->save();
-
-            Restaurant::deleteAll();
-
-            $result = Restaurant::getAll();
-            $this->AssertEquals([], $result);
-        }
-
-        function test_find()
-        {
-            //cuisine
-            $name = "Japanese";
-            $id = null;
-            $test_cuisine = new Cuisine($name, $id);
-            $test_cuisine->save();
-
-            //restaurant1
-            $name = "Good Fortune";
-            $description = "very tasty.";
-            $address = "1111 SW 11th Ave";
-            $cuisine_id = $test_cuisine->getId();
-            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
-            $test_restaurant->save();
-
-            //restaurant2
-            $name2 = "Good Luck";
-            $description2 = "very yummy.";
-            $address2 = "2222 SW 12th Ave";
-            $cuisine_id = $test_cuisine->getId();
-            $test_restaurant2 = new Restaurant($name2, $id, $cuisine_id, $description2, $address2);
-            $test_restaurant2->save();
-
-            $id = $test_restaurant->getId();
-            $result = Restaurant::find($id);
-
-            $this->assertEquals($test_restaurant, $result);
-        }
-
-        function test_GetReviews()
-        {
-            //cuisine
-            $name = "Japanese";
-            $id = null;
-            $test_cuisine = new Cuisine($name, $id);
-            $test_cuisine->save();
-
-            $test_cuisine_id = $test_cuisine->getId();
-
-            //restaurant1
-            $name = "Good Fortune";
-            $description = "very tasty.";
-            $address = "1111 SW 11th Ave";
-            $test_restaurant = new Restaurant($name, $id, $test_cuisine_id, $description, $address);
             $test_restaurant->save();
 
             //review1
@@ -207,9 +144,47 @@
             $restaurant_id = $test_restaurant->getId();
             $test_review2 = new Review($username2, $date2, $rating2, $comment2, $restaurant_id, $id);
 
-            $result = $test_restaurant->getReviews();
+            $result = Review::getAll();
 
             $this->assertEquals([$test_review, $test_review2], $result);
+        }
+
+        Function test_deleteAll()
+        {
+            //cuisine
+            $name = "Japanese";
+            $id = null;
+            $test_cuisine = new Cuisine($name, $id);
+            $test_cuisine->save();
+
+            //restaurant
+            $name = "Good Fortune";
+            $description = "very tasty.";
+            $address = "1111 SW 11th Ave";
+            $cuisine_id = $test_cuisine->getId();
+            $test_restaurant = new Restaurant($name, $id, $cuisine_id, $description, $address);
+            $test_restaurant->save();
+
+            //review1
+            $username = "Ben";
+            $date = 0000-00-00;
+            $rating = 5;
+            $comment = "good one.";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review = new Review($username, $date, $rating, $comment, $restaurant_id, $id);
+
+            //review2
+            $username2 = "Jen";
+            $date2 = 1111-00-00;
+            $rating2 = 2;
+            $comment2 = "Bad one.";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review2 = new Review($username2, $date2, $rating2, $comment2, $restaurant_id, $id);
+
+            Review::deleteAll();
+
+            $result = Review::getAll();
+            $this->AssertEquals([], $result);
         }
     }
 ?>
