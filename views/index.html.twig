@@ -7,7 +7,7 @@
         <div class="container">
             <h1>My Best Restaurants</h1>
 
-            <p>Add a new cuisine:</p>
+            <h1><small>Add a Cuisine</small></h1>
 
             <form action="/cuisines" method="post">
                 <label for="name">Cuisine Name:</label>
@@ -19,14 +19,14 @@
             <hr noshade size=4 width=100% align=left>
 
             {% if cuisines is not empty %}
-                <p>Here are all of the cuisines:</p>
+                <h3>Here are all of the cuisines:</h3>
                 <ul>
                     {% for cuisine in cuisines|sort %}
                         <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <p>There are no cuisines yet!</p>
+                <h3>There are no cuisines yet!</h3>
             {% endif %}
 
             <form action="/delete_cuisines" method="post">

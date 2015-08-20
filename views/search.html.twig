@@ -8,13 +8,13 @@
             <h1>Search Restaurants Result</h1>
 
             {% if search is not empty %}
-                <h4>{{ search.getName }} is in your list!</h4>
+                <h1><small>{{ search.getName }} is in your list!</small></h1>
                 <ul>
                     <li>Description: {{ search.getDescription }}</li>
                     <li>Address: {{ search.getAddress }}</li>
                 </ul>
             {% else %}
-                <h3>{{ search_term }} is not in your list!</h3>
+                <h1><small>{{ search_term }} is not in your list!</small></h1>
             {% endif %}
 
             <form action="/">

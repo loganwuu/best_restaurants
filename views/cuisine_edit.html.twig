@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Update the {{ cuisine.getName }} Cuisine </h1>
+            <h1>Update the '{{ cuisine.getName }}' Cuisine </h1>
 
             <form action="/cuisines/{{ cuisine.getId }}" method="post">
                 <input name="_method" type="hidden" value="patch">
