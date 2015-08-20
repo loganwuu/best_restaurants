@@ -8,11 +8,13 @@
             <h1>Search Restaurants Result</h1>
 
             {% if search is not empty %}
-                <h1><small>{{ search.getName }} is in your list!</small></h1>
+                <h1><small>{{ search_term }} is in your list!</small></h1>
+                {% for restaurants in search %}
                 <ul>
-                    <li>Description: {{ search.getDescription }}</li>
-                    <li>Address: {{ search.getAddress }}</li>
+                    <li>Description: {{ restaurants.getDescription }}</li>
+                    <li>Address: {{ restaurants.getAddress }}</li>
                 </ul>
+                {% endfor %}
             {% else %}
                 <h1><small>{{ search_term }} is not in your list!</small></h1>
             {% endif %}

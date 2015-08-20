@@ -1,5 +1,4 @@
 <?php
-
     class Cuisine
     {
         private $name;
@@ -36,7 +35,7 @@
             $restaurants = array();
             $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants WHERE cuisine_id={$this->getId()};");
             foreach($returned_restaurants as $restaurant) {
-                $name = $restaurant['name'];
+                $name = $restaurant["name"];
                 $id = $restaurant['id'];
                 $cuisine_id = $restaurant['cuisine_id'];
                 $description = $restaurant['description'];
@@ -71,7 +70,7 @@
             $returned_cuisines = $GLOBALS['DB']->query("SELECT * FROM cuisines;");
             $cuisines = array();
             foreach($returned_cuisines as $cuisine) {
-                $name = $cuisine['name'];
+                $name = $cuisine["name"];
                 $id = $cuisine['id'];
                 $new_cuisine = new Cuisine($name, $id);
                 array_push($cuisines, $new_cuisine);

@@ -5,11 +5,11 @@
     </head>
     <body>
         <div class="container">
-            <h1>{{ cuisine.getName }}</h1>
+            <h1>{{ cuisine.getName }} Food</h1>
 
             {% if restaurants is not empty %}
-                <p>Here are all the restaurants:</p>
-                  {% for restaurant in restaurants %}
+                <h2><small>Here are all the restaurants:</small></h2>
+                  {% for restaurant in restaurants|sort %}
                       <ul>
                           <li>{{ restaurant.getName }}
                               <ul>

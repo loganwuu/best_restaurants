@@ -104,15 +104,15 @@
 
         static function search($search_name)
         {
-            $found_restaurant = NULL;
+            $found_restaurants = array();
             $restaurants = Restaurant::getAll();
             foreach($restaurants as $restaurant) {
                 $restaurant_name = $restaurant->getName();
-                if($restaurant_name = $search_name) {
-                    $found_restaurant = $restaurant;
+                if($restaurant_name == $search_name) {
+                    array_push($found_restaurants, $restaurant);
                 }
             }
-            return $found_restaurant;
+            return $found_restaurants;
         }
     }
 ?>
