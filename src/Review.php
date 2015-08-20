@@ -72,7 +72,7 @@
         {
             return $this->restaurant_id;
         }
-
+        
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO reviews (username, date, rating, comment, restaurant_id) VALUES ('{$this->getUsername()}', '{$this->getDate()}', {$this->getRating()}, '{$this->getComment()}', {$this->getRestaurantId()});");
