@@ -5,17 +5,42 @@
     </head>
     <body>
         <div class="container">
-            <h1>{{ restaurant.getName }} Food</h1>
+            <h1>{{ restaurant.getName }}</h1>
+
+            <h1><small>Add a Review</small></h1>
+            <form action="/reviews" method="post" oninput="">
+                <div class='form-group'>
+                    <input id="restaurant_id" type="hidden" name="restaurant_id" value="{{ restaurant.getId() }}">
+                    <label for="username">Your Name:</label>
+                    <input id="username" type="text" name="username" required>
+                </div>
+                <div class='form-group'>
+                    <label for="date">Date:</label>
+                    <input id="date" type="date" name="date" required>
+                </div>
+                <div class='form-group'>
+                    <label for="rating">Rating (1 to 5):</label>
+                    <input id="rating" type="range" name="rating" max=5 min=1 required>
+                    <output >
+                </div>
+                <div class='form-group'>
+                    <label for="comment">Comment:</label>
+                    <input id="comment" type="text" name="comment" class='form-control' required>
+                </div>
+                <button type="submit" class="btn btn-danger">Add</button>
+            </form>
+
+            <hr noshade size=4 width=100% align=left>
 
             {% if reviews is not empty %}
                 <h2><small>Here are all the reviews:</small></h2>
                   {% for review in reviews %}
                       <ul>
-                          <li>Username: {{ review.getUsername }}
+                          <li>Name: {{ review.getUsername }}
                               <ul>
                                   <li>Date: {{ review.getDate }}</li>
-                                  <li>Rating: {{ view.getRating }} out of 5</li>
-                                  <li>Review: {{ view.getComment }}</li>
+                                  <li>Rating: {{ review.getRating }} out of 5</li>
+                                  <li>Review: {{ review.getComment }}</li>
                               </ul>
                           </li>
                       </ul>
@@ -24,32 +49,8 @@
                 <h2><small>There's no review yet. Add one now!</small></h2>
             {% endif %}
 
-            <hr noshade size=4 width=100% align=left>
-
-            <h1><small>Add a Review</small></h1>
-            <form action="/reviews" method="post">
-                <div class='form-group'>
-                    <input id="restaurant_id" type="hidden" name="restaurant_id" value="{{ restaurant.getId() }}">
-                    <label for="username">Your Name:</label>
-                    <input id="username" type="text" name="username">
-                </div>
-                <div class='form-group'>
-                    <label for="date">Date:</label>
-                    <input id="date" type="date" name="date">
-                </div>
-                <div class='form-group'>
-                    <label for="rating">Rating (1 to 5):</label>
-                    <input id="rating" type="number" name="rating" max=5 min=1>
-                </div>
-                <div class='form-group'>
-                    <label for="comment">Comment:</label>
-                    <input id="comment" type="text" name="comment" class='form-control'>
-                </div>
-                <button type="submit" class="btn btn-danger">Add</button>
-            </form>
-
             <form action="/">
-                <button type="submit" class="btn btn-default">Home</button>
+                <button type="submit" class="btn btn-default">Return Home</button>
             </form>
 
         </div>

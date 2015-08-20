@@ -2,6 +2,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Restaurant.php";
     require_once __DIR__."/../src/Cuisine.php";
+    require_once __DIR__."/../src/Review.php";
 
     $app = new Silex\Application();
     $app['debug'] = true;
@@ -84,7 +85,7 @@
         $review = new Review($username, $date, $rating, $comment, $restaurant_id, $id = null);
         $review->save();
         $restaurant = Restaurant::find($restaurant_id);
-        return $app['twig']->render('restaurant.html.twig', array('restaurant' => $restaurant, 'reviews' => Reviews::getAll()));
+        return $app['twig']->render('restaurant.html.twig', array('restaurant' => $restaurant, 'reviews' => Review::getAll()));
     });
 
     //Cuisine_edit page
