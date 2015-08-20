@@ -5,8 +5,11 @@
     </head>
     <body>
         <div class="container">
-            <h1>{{ restaurant.getName }}</h1>
-
+            <div class="jumbotron">
+                <h1>{{ restaurant.getName }}<br>
+                <small>restaurant</small>
+                </h1>
+            </div>
             <h1><small>Add a Review</small></h1>
             <form action="/reviews" method="post" oninput="amount.value = rating.value">
                 <div class='form-group'>

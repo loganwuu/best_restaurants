@@ -5,8 +5,12 @@
     </head>
     <body>
         <div class="container">
-            <h1>{{ cuisine.getName }} Food</h1>
-
+            <div class="jumbotron">
+                <h1>
+                    {{ cuisine.getName }} Food<br>
+                    <small>cuisine</small>
+                </h1>
+            </div>
             {% if restaurants is not empty %}
                 <h2><small>Here are all the restaurants:</small></h2>
                   {% for restaurant in restaurants|sort %}
@@ -20,6 +24,8 @@
                           </li>
                       </ul>
                   {% endfor %}
+            {% else %}
+                <h2><small>There's no restaurant added yet. Add one now!</small></h2>
             {% endif %}
 
             <hr noshade size=4 width=100% align=left>
