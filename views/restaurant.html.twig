@@ -8,7 +8,7 @@
             <h1>{{ restaurant.getName }}</h1>
 
             <h1><small>Add a Review</small></h1>
-            <form action="/reviews" method="post" oninput="">
+            <form action="/reviews" method="post" oninput="amount.value = rating.value">
                 <div class='form-group'>
                     <input id="restaurant_id" type="hidden" name="restaurant_id" value="{{ restaurant.getId() }}">
                     <label for="username">Your Name:</label>
@@ -20,8 +20,8 @@
                 </div>
                 <div class='form-group'>
                     <label for="rating">Rating (1 to 5):</label>
-                    <input id="rating" type="range" name="rating" max=5 min=1 required>
-                    <output >
+                    <input id="rating" type="range" name="rating" max="5" min="1" required>
+                    <output name="amount" for="rating">3</output>
                 </div>
                 <div class='form-group'>
                     <label for="comment">Comment:</label>
